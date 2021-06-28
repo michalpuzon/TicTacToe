@@ -1,0 +1,43 @@
+.game {
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid black;
+    font-weight: bold;
+    font-size: 6em;
+    transition: all 0.1s;
+
+    &:not(.game__box--x):not(.game__box--o):not(.game__box--over) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: darkslategrey;
+      }
+
+      &:active {
+        box-shadow: inset 0 0 50px 5px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &--x,
+    &--o {
+      animation: play 300ms forwards;
+    }
+
+    &--x {
+      color: darkslategray;
+    }
+
+    &--o {
+      color: black;
+    }
+
+    &--winner {
+      > span {
+        animation: winner 300ms forwards;
+        animation-delay: 100ms;
+      }
+    }
+  }
+}
